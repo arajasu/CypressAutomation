@@ -1,0 +1,10 @@
+{
+  "defaultCommandTimeout": 8000,
+  "pageLoadTimeout": 20000,
+  "chromeWebSecurity": false,
+  "experimentalSourceRewriting": true,
+  "env": {
+    "url": "https://rahulshettyacademy.com"
+  },
+  "projectId": "vitu4r"
+}
