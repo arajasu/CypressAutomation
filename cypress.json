@@ -3,6 +3,7 @@
   "pageLoadTimeout": 20000,
   "chromeWebSecurity": false,
   "experimentalSourceRewriting": true,
+  "reporter": "mochawesome",
   "env": {
     "url": "https://rahulshettyacademy.com"
   },

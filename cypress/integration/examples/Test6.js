@@ -6,13 +6,13 @@ describe('My 6th Cypress test suite', function()
         // test steps - grabbing attribute and handling child window
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
         //get attribute
-        cy.get('#opentab').then(function(el)
-        {
-            const url = el.prop('href')
-            cy.log(url)
-            cy.visit(url)
+        // cy.get('#opentab').then(function(el)
+        // {
+        //     const url = el.prop('href')
+        //     cy.log(url)
+        //     cy.visit(url)
 
-        })
+        // })
        
 
 

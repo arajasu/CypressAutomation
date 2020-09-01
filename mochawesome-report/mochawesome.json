@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-09-01T09:41:15.203Z",
+    "end": "2020-09-01T09:41:48.341Z",
+    "duration": 33138,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e112e0a2-1ec6-4ce4-b0f9-bb3c61ba20e9",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test8Framework.js",
+      "file": "cypress\\integration\\examples\\Test8Framework.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75b11ae8-e49f-4073-883a-f92f7df7036c",
+          "title": "My 8th Cypress test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "8th Cypress test case",
+              "fullTitle": "My 8th Cypress test suite 8th Cypress test case",
+              "timedOut": null,
+              "duration": 28431,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homePage = new _HomePage[\"default\"]();\nvar productPage = new _ProductPage[\"default\"]();\nvar checkoutPage = new _CheckoutPage[\"default\"]();\ncy.visit(Cypress.env('url') + \"/angularpractice/\"); //Enter name\n//cy.get(\"input[name='name']:nth-child(2)\").type(this.data.name)\nhomePage.getEditBox().type(this.data.name); //Enter Gender\n// cy.get('select').select(this.data.gender)\nhomePage.getGender().select(this.data.gender); //validate 2nd text box has the same value of name\n// cy.get(':nth-child(4) > .ng-untouched').should('have.value', this.data.name)\nhomePage.getTwoWayDataBinding().should('have.value', this.data.name); //validate name field length property\n// cy.get(\"input[name='name']:nth-child(2)\").should('have.attr','minlength', '2')\nhomePage.getEditBox().should('have.attr', 'minlength', '2'); //validate radio button disabled\n// cy.get('#inlineRadio3').should('be.disabled')\nhomePage.getEmploymentStatus().should('be.disabled'); //Click on shop\n// cy.get(':nth-child(2) > .nav-link').click()\nhomePage.getShopTab().click(); //using custom function and iterating through an array to select multiple products read from fixtures -> example.json\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n}); //Click on checkout button\nproductPage.getCheckoutButton().click();\nvar sum = 0; //Validate prices\ncy.get('tr td:nth-child(4) strong').each(function ($el, index, $list) {\n  // cy.log($el.text())\n  var actualText = $el.text();\n  var res = actualText.split(\" \");\n  res = res[1].trim();\n  sum = Number(sum) + Number(res);\n}).then(function () {\n  cy.log(sum);\n});\ncy.get('h3 > strong').then(function (element) {\n  var amt = element.text();\n  var res = amt.split(\" \");\n  var total = res[1].trim();\n  expect(Number(total)).to.equal(sum);\n}); //Click on Checkout to complete purchase    \ncheckoutPage.CheckoutBtn().click(); //Enter country\ncy.selectDynamicDropDown('India'); //Click Purchase\ncheckoutPage.PurchaseButton().click(); //Validate success message\ncheckoutPage.SuccessMessage().should('contain.text', 'Success');",
+              "err": {},
+              "uuid": "f1b4e9bc-130a-4f93-ab03-a328bef2f23a",
+              "parentUUID": "75b11ae8-e49f-4073-883a-f92f7df7036c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f1b4e9bc-130a-4f93-ab03-a328bef2f23a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 28431,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
