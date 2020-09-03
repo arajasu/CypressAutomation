@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome",
+    "dashboardTest": "npm run test -- --record --key 5dd26569-3872-460b-9c92-415fd66e38bf --reporter mochawesome",
+    "GreenKartTest": "npm run test -- --spec \"cypress/integration/examples/GreenKart/*\""
   },
   "author": "AravindSubbarao",
   "license": "ISC",
